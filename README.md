@@ -1,0 +1,3 @@
+# TiKum-
+
+Bersama kita pusing
