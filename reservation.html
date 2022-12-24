@@ -41,7 +41,7 @@
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="service.html" class="nav-item nav-link">Service</a>
                     <a href="menu.html" class="nav-item nav-link">Menu</a>
-                    <a href="reservation.html" class="nav-item nav-link active">Reservation</a>
+                    <a href="reservation.php" class="nav-item nav-link active">Reservation</a>
                 </div>
             </div>
         </nav>
@@ -50,7 +50,7 @@
 
 
     <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="container-fluid reservation-header mb-5 position-relative overlay-bottom">
         <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
             <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Reservation</h1>
             <div class="d-inline-flex mb-lg-5">
@@ -70,18 +70,10 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 my-5 my-lg-0">
                         <div class="p-5">
-                            <div class="mb-4">
-                                <h1 class="display-3 text-primary">TIKUM</h1>
-                                <h1 class="text-white">Online Table Booking</h1>
+                            <div class="mb-4">  
+                                <h1 class="text-white-reservation">Online Table Booking</h1>
                             </div>
-                            <p class="text-white">Dapatkan diskon sebanyak 10% dengan melakukan reservasi secara online. Tak hanya
-                                itu, kamu juga bisa mendapat keuntungan ini loh: 
-                            </p>
-                            <ul class="list-inline text-white m-0">
-                                <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Bisa pesan kapan saja dan dimana saja</li>
-                                <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Dapat melihat ketersediaan meja secara real-time</li>
-                                <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Membantu mempersiapkan fasilitas pada acara kamu secara matang</li>
-                            </ul>
+                            <img src="img/denah.jpg" alt="Image" width="500" height="500">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -124,7 +116,7 @@
 
 
     <!-- Footer Start -->
-  <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+  <div class="container-fluid reservation-footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
         <div class="row mx-0 px-lg-5 mt-4">
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Our Contact</h4>
@@ -160,25 +152,6 @@
 
 
     <!-- JavaScript Libraries -->
-    <script>
-        function onFormSubmit(form){
-            var data = {
-                "nama" : form.nama.value(),
-                "telpon" : form.telpon.value(),
-                "time" : form.time.value(),
-                "nomeja" : form.nomeja.value(),
-                "jumlah" : form.jumlah.value()
-            };
-
-            var jsonData = JSON.stringify(data);
-
-            document.cookie = "my_form=" + jsonData;
-
-            window.location.href = form.getAttribute("action");
-
-            return false;
-        }
-    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>

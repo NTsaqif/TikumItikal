@@ -9946,7 +9946,7 @@ h6,
   .nav-bar.container-lg,
   .nav-bar.container-xl {
     position: relative;
-    background: #095430;
+    background: #055A69;
   }
 }
 
@@ -10059,13 +10059,64 @@ h6,
   list-style-type: none;
 }
 
-.reservation,
-.page-header,
-.offer,
-.footer {
-  background: linear-gradient(rgba(51, 33, 29, 0.9), rgba(51, 33, 29, 0.9)),
+.page-header {
+  background: 
     url(../img/bg.jpg);
   background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footer {
+  background: 
+    url(../img/bg-1.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-menu {
+  background: 
+    url(../img/bg-menu.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.menu-footer {
+  background: 
+    url(../img/bg-menu-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reservation-header {
+  background: 
+    url(../img/bg-reservation.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reservation-footer {
+  background: 
+    url(../img/bg-reservation-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reservation {
+  background: rgba(43 22 17);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text-white-reservation{
+  text-align: center;
+  color: #fff;
+}
+
+.home-footer {
+  background: 
+    url(../img/bg-home-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
