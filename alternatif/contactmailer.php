@@ -54,8 +54,5 @@ use PHPMailer\PHPMailer\Exception;
 exit(json_encode(array("status" => $status, "response" => $response)));  
 //Closing smtp connection
 	$mail->smtpClose();
-<<<<<<< HEAD
-?>
-=======
-?>
->>>>>>> ff676c5d76aafc0b069808f04a9c8c23439f4e34
+
+?>	

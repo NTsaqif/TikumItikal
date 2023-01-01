@@ -50,7 +50,7 @@
 
     <section class="home-slider owl-carousel">
 
-      <div class="slider-item" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+      <div class="slider-item" style="background-image: url(images/contact_bg.jpg);" data-stellar-background-ratio="0.5">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center">
@@ -88,24 +88,24 @@
 					</div>
 					<div class="col-md-1"></div>
           <div class="col-md-6 ftco-animate">
-            <form action="contactmailer.php" id="formcontact" class="contact-form" method="post" onsubmit="return onFormSubmit(this);">
+            <form id="formcontact" class="contact-form">
             	<div class="row">
             		<div class="col-md-6">
 	                <div class="form-group">
-	                  <input type="text" name="name" class="form-control" placeholder="Your Name">
+	                  <input type="text" id="name" class="form-control" placeholder="Your Name">
 	                </div>
                 </div>
                 <div class="col-md-6">
 	                <div class="form-group">
-	                  <input type="text" name="email" class="form-control" placeholder="Your Email">
+	                  <input type="text"id="email" class="form-control" placeholder="Your Email">
 	                </div>
 	                </div>
               </div>
               <div class="form-group">
-                <input type="text" name="subject" class="form-control" placeholder="Subject">
+                <input type="text" id="subject" class="form-control" placeholder="Subject">
               </div>
               <div class="form-group">
-                <textarea name="body" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                <textarea id="body" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
               </div>
               <div class="form-group">
                 <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
