@@ -81,9 +81,6 @@
 	            <div class="col-md-12 mb-3">
 	              <p><span>Email:</span> <a>cookeryandcoffeetikum@gmail.com</a></p>
 	            </div>
-	            <div class="col-md-12 mb-3">
-	              <p><span>Website:</span> <a>yoursite.com</a></p>
-	            </div>
 						</div>
 					</div>
 					<div class="col-md-1"></div>
