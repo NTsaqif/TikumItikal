@@ -1,3 +1,0 @@
-# TiKum-
-
-kick afandi
