@@ -439,6 +439,33 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+  <script type="text/javascript">
+   function sendEmail(){
+    var name = $("#name")
+    var email = $("#email")
+    var date = $("#date")
+    var time = $("#time")
+    var phone = $("#phone")
+    var table = $("#table")
+
+    if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(date) && isNotEmpty(time) && isNotEmpty(phone) && isNotEmpty(table)){
+      $.ajax({
+        url: 'reservemailer.php',
+        method: 'POST',
+        dataType: 'json',
+        data:{
+          name: name.val(),
+          email: email.val(),
+          date: date.val(),
+          time: time.val(),
+          phone: phone.val(),
+          table: table.val(),
+        },success: function(response){
+          $('#bookingform')[0].reset();
+        }
+      });
+    }
+   }
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>

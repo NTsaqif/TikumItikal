@@ -191,7 +191,7 @@
           subject: subject.val(),
           body: body.val(),
         },success: function(response){
-          $('formcontact')[0].reset();
+          $('#formcontact')[0].reset();
         }
       });
     }
