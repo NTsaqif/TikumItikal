@@ -31,7 +31,7 @@
   <body>
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">TIKUM</a>
+	      <a class="navbar-brand" href="index.php">TIKUM</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -57,14 +57,14 @@
 
             <div class="col-md-7 col-sm-12 text-center ftco-animate">
             	<h1 class="mb-3 mt-5 bread">Contact Us</h1>
-                        </div>
-
+            </div>
+             
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section contact-section">
+   <section class="ftco-section contact-section">
       <div class="container mt-5">
         <div class="row block-9">
 					<div class="col-md-4 contact-info ftco-animate">
@@ -81,9 +81,6 @@
 	            <div class="col-md-12 mb-3">
 	              <p><span>Email:</span> <a>cookeryandcoffeetikum@gmail.com</a></p>
 	            </div>
-	            <div class="col-md-12 mb-3">
-	              <p><span>Website:</span> <a>yoursite.com</a></p>
-	            </div>
 						</div>
 					</div>
 					<div class="col-md-1"></div>
@@ -97,7 +94,7 @@
                 </div>
                 <div class="col-md-6">
 	                <div class="form-group">
-	                  <input type="text"id="email" class="form-control" placeholder="Your Email">
+	                  <input type="text" id="email" class="form-control" placeholder="Your Email">
 	                </div>
 	                </div>
               </div>
@@ -108,7 +105,7 @@
                 <textarea id="body" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
               </div>
               <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                <input type="submit" onclick="sendEmail()" value="Send Message" class="btn btn-primary py-3 px-5">
               </div>
             </form>
           </div>
@@ -170,35 +167,45 @@
     
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+        function sendEmail() {
+            var name = $("#name");
+            var email = $("#email");
+            var subject = $("#subject");
+            var body = $("#body");
 
-
-  <script type="text/javascript">
-   function sendEmail(){
-    var name = $("#name")
-    var email = $("#email")
-    var subject = $("#subject")
-    var body = $("#body")
-
-    if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)){
-      $.ajax({
-        url: 'contactmailer.php',
-        method: 'POST',
-        dataType: 'json',
-        data:{
-          name: name.val(),
-          email: email.val(),
-          subject: subject.val(),
-          body: body.val(),
-        },success: function(response){
-          $('#formcontact')[0].reset();
+            if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
+                $.ajax({
+                   url: 'contactmailer.php',
+                   method: 'POST',
+                   dataType: 'json',
+                   data: {
+                       name: name.val(),
+                       email: email.val(),
+                       subject: subject.val(),
+                       body: body.val()
+                   }, success: function (response) {
+                        $('#formcontact')[0].reset();
+                        $('.sent-notification').text("Message Sent Successfully.");
+                   }
+                });
+            }
         }
-      });
-    }
-   }
-  </script>
 
-  <script src="js/jquery.min.js"></script>
+        function isNotEmpty(caller) {
+            if (caller.val() == "") {
+                caller.css('border', '1px solid red');
+                return false;
+            } else
+                caller.css('border', '');
+
+            return true;
+        }
+    </script>
+ 
+ <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -215,10 +222,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     
-  </body>
-<<<<<<< HEAD
+</body>
 </html>
-=======
-</html>
->>>>>>> ff676c5d76aafc0b069808f04a9c8c23439f4e34

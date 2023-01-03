@@ -31,7 +31,7 @@
   <body>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	  <div class="container">
-		<a class="navbar-brand" href="index.html">TIKUM</a>
+		<a class="navbar-brand" href="index.php">TIKUM</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 		  <span class="oi oi-menu"></span> Menu
 		</button>
@@ -112,7 +112,7 @@
 		    				<div class="form-group ml-md-4">
 		    					<div class="input-wrap">
 		            		<div class="icon"><span class="ion-ios-clock"></span></div>
-		            		<input id="time" type="text" class="form-control appointment_time" placeholder="Time">
+		            		<input id="time" type="text" class="form-control" placeholder="Time">
 	            		</div>
 		    				</div>
 		    				<div class="form-group ml-md-4">
@@ -124,7 +124,7 @@
 							<input id="table" type="text" class="form-control" placeholder="Table Number">
 		            </div>
 		            <div class="form-group ml-md-4">
-		              <input type="submit" value="Reserve" class="btn btn-white py-3 px-4">
+		              <input type="submit" onclick="sendEmail()" value="Reserve" class="btn btn-white py-3 px-4">
 		            </div>
 	    				</div>
 	    			</form>
@@ -133,6 +133,7 @@
     	</div>
     </section>
 
+   
     <section class="ftco-section">
     	<div class="container">
         <div class="row">
@@ -658,57 +659,66 @@
         </div>
     </footer>
     
-  
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+    
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
   <script type="text/javascript">
    function sendEmail(){
-    var name = $("#name")
-    var email = $("#email")
-    var date = $("#date")
-    var time = $("#time")
-    var phone = $("#phone")
-    var table = $("#table")
+    var name = $("#name");
+    var email = $("#email");
+    var date = $("#date");
+    var time = $("#time");
+    var phone = $("#phone");
+    var table = $("#table");
 
     if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(date) && isNotEmpty(time) && isNotEmpty(phone) && isNotEmpty(table)){
       $.ajax({
-        url: 'reservemailer.php',
-        method: 'POST',
-        dataType: 'json',
-        data:{
-          name: name.val(),
-          email: email.val(),
-          date: date.val(),
-          time: time.val(),
-          phone: phone.val(),
-          table: table.val(),
-        },success: function(response){
-          $('#bookingform')[0].reset();
+                   url: 'reservemailer.php',
+                   method: 'POST',
+                   dataType: 'json',
+                   data: {
+                       name: name.val(),
+                       email: email.val(),
+                       date: date.val(),
+                       time: time.val(),
+                       phone: phone.val(),
+                       table: table.val(),
+                   }, success: function (response) {
+                        $('#bookingform')[0].reset();
+                        $('.sent-notification').text("Message Sent Successfully.");
+                   }
+                });
+            }
         }
-      });
-    }
-   }
-  </script>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-    
-  </body>
+        function isNotEmpty(caller) {
+            if (caller.val() == "") {
+                caller.css('border', '1px solid red');
+                return false;
+            } else
+                caller.css('border', '');
+
+            return true;
+        }
+    </script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.timepicker.min.js"></script>
+<script src="js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="js/google-map.js"></script>
+<script src="js/main.js"></script>
+  
+</body>
 </html>
