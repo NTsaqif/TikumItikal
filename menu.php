@@ -673,7 +673,7 @@
 
     if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(date) && isNotEmpty(time) && isNotEmpty(phone) && isNotEmpty(table)){
       $.ajax({
-                   url: 'reservemailer.php',
+                   url: 'reservasimeja.php',
                    method: 'POST',
                    dataType: 'json',
                    data: {
@@ -685,7 +685,6 @@
                        table: table.val(),
                    }, success: function (response) {
                         $('#bookingform')[0].reset();
-                        $('.sent-notification').text("Message Sent Successfully.");
                    }
                 });
             }

@@ -156,7 +156,7 @@
 							<input id="table" type="text" class="form-control" placeholder="Table Number">
 		            </div>
 		            <div class="form-group ml-md-4">
-		              <input type="submit" onclick="sendEmail()" value="Reserve" class="btn btn-white py-3 px-4">
+		              <input type="submit" onclick="sendEMail()" value="Reserve" class="btn btn-white py-3 px-4">
 		            </div>
 	    				</div>
 	    			</form>
@@ -424,7 +424,7 @@
 
   if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(date) && isNotEmpty(time) && isNotEmpty(phone) && isNotEmpty(table)){
 	$.ajax({
-				 url: 'reservemailer.php',
+				 url: 'reservasimeja.php',
 				 method: 'POST',
 				 dataType: 'json',
 				 data: {
@@ -436,7 +436,6 @@
 					 table: table.val(),
 				 }, success: function (response) {
 					  $('#bookingform')[0].reset();
-					  $('.sent-notification').text("Message Sent Successfully.");
 				 }
 			  });
 		  }
