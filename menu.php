@@ -93,38 +93,38 @@
 	    		</div>
 	    		<div class="book p-4">
 	    			<h3>Book a Table</h3>
-	    			<form id="bookingform" class="appointment-form">
+					<form id="bookingform" action="" method="POST" class="appointment-form">
 	    				<div class="d-md-flex">
 		    				<div class="form-group">
-		    					<input id="name" type="text" class="form-control" placeholder="Name">
+		    					<input name="name" required type="text" class="form-control" placeholder="Name">
 		    				</div>
 		    				<div class="form-group ml-md-4">
-		    					<input id="email" type="text" class="form-control" placeholder="Email">
+		    					<input name="email" required type="email" class="form-control" placeholder="Email">
 		    				</div>
 	    				</div>
 	    				<div class="d-md-flex">
 		    				<div class="form-group">
 		    					<div class="input-wrap">
 		            		<div class="icon"><span class="ion-md-calendar"></span></div>
-		            		<input id="date" type="text" class="form-control appointment_date" placeholder="Date">
+		            		<input name="date" required type="text" class="form-control appointment_date" placeholder="Date">
 	            		</div>
 		    				</div>
 		    				<div class="form-group ml-md-4">
 		    					<div class="input-wrap">
 		            		<div class="icon"><span class="ion-ios-clock"></span></div>
-		            		<input id="time" type="text" class="form-control" placeholder="Time">
+		            		<input name="time" required type="text" class="form-control" placeholder="Duration">
 	            		</div>
 		    				</div>
 		    				<div class="form-group ml-md-4">
-		    				<input id="phone" type="text" class="form-control" placeholder="Phone">
+		    				<input name="phone" required type="text" class="form-control" placeholder="Phone">
 		    				</div>
 	    				</div>
 	    				<div class="d-md-flex">
 	    					<div class="form-group">
-							<input id="table" type="text" class="form-control" placeholder="Table Number">
+							<input name="table" required type="text" class="form-control" placeholder="Table Number">
 		            </div>
 		            <div class="form-group ml-md-4">
-		              <input type="submit" onclick="sendEmail()" value="Reserve" class="btn btn-white py-3 px-4">
+		              <input type="submit" value="Reserve" class="btn btn-white py-3 px-4">
 		            </div>
 	    				</div>
 	    			</form>

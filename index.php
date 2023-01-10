@@ -123,40 +123,40 @@
 	    				</div>
 	    			</div>
 	    		</div>
-	    		<div class="book p-4">
+				<div class="book p-4">
 					<h3>Book a Table</h3>
-	    			<form id="bookingform" class="appointment-form">
+	    			<form action="" method="POST" id="bookingform" class="appointment-form">
 	    				<div class="d-md-flex">
 		    				<div class="form-group">
-		    					<input id="name" type="text" class="form-control" placeholder="Name">
+		    					<input name="name" required type="text" class="form-control" placeholder="Name">
 		    				</div>
 		    				<div class="form-group ml-md-4">
-		    					<input id="email" type="text" class="form-control" placeholder="Email">
+		    					<input name="email" required type="email" class="form-control" placeholder="Email">
 		    				</div>
 	    				</div>
 	    				<div class="d-md-flex">
 		    				<div class="form-group">
 		    					<div class="input-wrap">
 		            		<div class="icon"><span class="ion-md-calendar"></span></div>
-		            		<input id="date" type="text" class="form-control appointment_date" placeholder="Date">
+		            		<input name="date" required type="text" class="form-control appointment_date" placeholder="Date">
 	            		</div>
 		    				</div>
 		    				<div class="form-group ml-md-4">
 		    					<div class="input-wrap">
 		            		<div class="icon"><span class="ion-ios-clock"></span></div>
-		            		<input id="time" type="text" class="form-control" placeholder="Time">
+		            		<input name="time" required type="text" class="form-control" placeholder="Duration">
 	            		</div>
 		    				</div>
 		    				<div class="form-group ml-md-4">
-		    				<input id="phone" type="text" class="form-control" placeholder="Phone">
+		    				<input name="phone" required type="text" class="form-control" placeholder="Phone">
 		    				</div>
 	    				</div>
 	    				<div class="d-md-flex">
 	    					<div class="form-group">
-							<input id="table" type="text" class="form-control" placeholder="Table Number">
+							<input name="table" required type="text" class="form-control" placeholder="Table Number">
 		            </div>
 		            <div class="form-group ml-md-4">
-		              <input type="submit" onclick="sendEMail()" value="Reserve" class="btn btn-white py-3 px-4">
+		              <input type="submit" value="Reserve" class="btn btn-white py-3 px-4">
 		            </div>
 	    				</div>
 	    			</form>
@@ -422,35 +422,41 @@
   var phone = $("#phone");
   var table = $("#table");
 
-  if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(date) && isNotEmpty(time) && isNotEmpty(phone) && isNotEmpty(table)){
-	$.ajax({
-				 url: 'reservasimeja.php',
-				 method: 'POST',
-				 dataType: 'json',
-				 data: {
-					 name: name.val(),
-					 email: email.val(),
-					 date: date.val(),
-					 time: time.val(),
-					 phone: phone.val(),
-					 table: table.val(),
-				 }, success: function (response) {
-					  $('#bookingform')[0].reset();
-				 }
-			  });
-		  }
-	  }
+  
+<?php
+        $conn = mysqli_connect("localhost", "wsmifint_tikumitikal", "Polije1234", "wsmifint_tikumitikal");
+         
+        if($conn === false){
+            die("ERROR: Could not connect. "
+                . mysqli_connect_error());
+        }
+         
 
-	  function isNotEmpty(caller) {
-		  if (caller.val() == "") {
-			  caller.css('border', '1px solid red');
-			  return false;
-		  } else
-			  caller.css('border', '');
+        if (isset($_POST['name']) && isset($_POST['email'])) {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $date = $_POST['date'];
+            $time = $_POST['time'];
+            $phone = $_POST['phone'];
+            $table = $_POST['table'];
+         
+        $sql = "UPDATE reservasi  SET Nama='$name', Email='$email', Tanggal='$date', No_HP='$phone', Durasi='$time' WHERE No_Meja='$table'";
+         
+		if(mysqli_query($conn, $sql)){
+            echo '<script>alert("Reservasi Berhasil")</script>';
+ 
+        } else{
+            echo '<script>alert("Mohon Maaf , Meja Dengan Nomor $table telah digunakan")</script>';
+        }
+         
+        mysqli_close($conn);
+    }
+        ?>
 
-		  return true;
-	  }
-  </script>
+<script>if (window.history.replaceState) {
+	window.history.replaceState(null,null, window.location.href);
+}</script>
+
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
